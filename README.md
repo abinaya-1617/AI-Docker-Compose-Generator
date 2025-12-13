@@ -1,149 +1,138 @@
-# DockerComposeAIGenerator
+# AI Docker Compose Generator 🚀
 
-DockerComposeAIGenerator is an AI-powered tool that automatically generates Dockerfile and docker-compose.yaml files for any GitHub repository, making containerization and deployment quick and easy.
+![GitHub Repo stars](https://img.shields.io/github/stars/abinaya-1617/AI-Docker-Compose-Generator?style=social) ![GitHub forks](https://img.shields.io/github/forks/abinaya-1617/AI-Docker-Compose-Generator?style=social) ![GitHub issues](https://img.shields.io/github/issues/abinaya-1617/AI-Docker-Compose-Generator?style=social)
 
-## Demo
+Welcome to the **AI Docker Compose Generator**! This tool simplifies the process of creating Docker configurations for your projects. Just paste your GitHub repository link, and the app will generate a suitable `Dockerfile` and `docker-compose.yaml` file. Deploying your applications has never been easier.
 
-A public demo version is available at: [https://dockergen.jonte.au](https://dockergen.jonte.au)
+## Table of Contents
 
-**Important Notes about the Demo:**
-- You must provide your own OpenAI API key to use the demo version
-- Unlike the main version where the API key is defined in a server-side .env file, the demo requires users to input their key in the web interface
-- The demo is based on the [`demo-version`](https://github.com/jontstaz/DockerComposeAIGenerator/tree/demo-version) branch
-
-## Overview
-
-This project takes a GitHub repository URL as input, analyzes its structure and content, and uses an AI model to generate appropriate Docker configuration files tailored to that specific project. It's perfect for developers who want to quickly containerize and deploy projects without spending time manually crafting Docker configurations.
-
-## Screenshot
-
-![AI Docker Generator Screenshot](screenshot.jpg)
-*AI Docker Generator WebUI showing generated Docker configurations for a GitHub repository*
+1. [Features](#features)
+2. [Getting Started](#getting-started)
+3. [How It Works](#how-it-works)
+4. [Installation](#installation)
+5. [Usage](#usage)
+6. [Examples](#examples)
+7. [Contributing](#contributing)
+8. [License](#license)
+9. [Links](#links)
 
 ## Features
 
-- **One-Click Generation**: Simply provide a GitHub URL and get ready-to-use Docker configurations
-- **Intelligent Analysis**: Automatically identifies programming languages, frameworks, databases, and dependencies
-- **Production-Ready Outputs**: Generates optimized multi-stage Dockerfiles when beneficial
-- **Smart Defaults**: Includes sensible default configurations for environment variables, volumes, and networking
-- **Multiple AI Providers**: Choose between OpenAI API or your local Ollama installation
+- **Easy Setup**: Just paste your GitHub repo link.
+- **Automatic Generation**: Quickly generates `Dockerfile` and `docker-compose.yaml`.
+- **Flexible**: Works with various types of projects.
+- **Open Source**: Contribute to the project and improve it.
 
-## Architecture
+## Getting Started
 
-The project consists of two main components:
-
-1. **API Backend** (Python/FastAPI):
-   - Processes GitHub repositories using Repomix
-   - Communicates with OpenAI or Ollama models
-   - Generates and returns Docker configurations
-
-2. **Web Frontend** (Next.js):
-   - Provides user interface for entering GitHub URLs
-   - Allows selection between OpenAI or Ollama as the AI provider
-   - Displays generated Docker configurations
-   - Allows copying or downloading of configuration files
-
-## Requirements
-
-- Python 3.9+
-- Node.js 18+
-- OpenAI API key (if using OpenAI as provider)
-- [Ollama](https://ollama.ai) installation (if using Ollama as provider)
-
-## Installation
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/jontstaz/DockerComposeAIGenerator.git
-   cd DockerComposeAIGenerator
-   ```
-
-2. Set up the API:
-   ```bash
-   cd api
-   # Create a virtual environment (optional but recommended)
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   
-   # Install dependencies
-   pip install -r requirements.txt
-   
-   # Create a .env file with your OpenAI API key (only needed if using OpenAI)
-   echo "OPENAI_API_KEY=your_api_key_here" > .env
-   ```
-
-3. Set up the web frontend:
-   ```bash
-   cd ../web
-   npm install
-   # or if you use bun
-   bun install
-   ```
-
-## Usage
-
-1. Start the API server:
-   ```bash
-   cd api
-   uvicorn main:app --reload
-   ```
-
-2. Start the web frontend:
-   ```bash
-   cd web
-   npm run dev
-   # or if you use bun
-   bun run dev
-   ```
-
-3. Open your browser and navigate to http://localhost:3000
-
-4. Enter a GitHub repository URL, select your preferred AI provider (OpenAI or Ollama), and click "Generate"
-   - If using Ollama, make sure you have it running locally and have pulled your preferred model
-
-5. Review the generated Dockerfiles and docker-compose.yaml
-
-6. Copy or download the configuration files and use them in your project
-
-## Docker Deployment
-
-You can easily deploy this application using Docker:
-
-1. Copy the example environment file and set your OpenAI API key (if using OpenAI):
-   ```bash
-   cp .env-example .env
-   # Edit .env with your actual API key
-   ```
-
-2. Build and start the containers:
-   ```bash
-   docker-compose up -d
-   ```
-
-3. Access the application at http://localhost:3000
-
-4. To stop the containers:
-   ```bash
-   docker-compose down
-   ```
+To get started, you need to download the latest release of the AI Docker Compose Generator. You can find it [here](https://github.com/abinaya-1617/AI-Docker-Compose-Generator/releases). Download the file, and follow the installation instructions below.
 
 ## How It Works
 
-1. The tool fetches and analyzes the GitHub repository using Repomix, which creates a semantic map of the project's structure and content
-2. This map is used as context for an AI model (OpenAI's GPT or a local Ollama model) that identifies the technologies used and the requirements for containerization
-3. The AI generates appropriate Docker configuration files based on the project's specific needs
-4. The generated files are presented to the user through the web interface
+1. **Input**: The user provides a GitHub repository link.
+2. **Processing**: The application analyzes the repository.
+3. **Output**: It generates a `Dockerfile` and `docker-compose.yaml` based on the repository's structure and requirements.
 
-## License
+## Installation
 
-[MIT License](LICENSE)
+To install the AI Docker Compose Generator, follow these steps:
+
+1. **Download**: Visit the [Releases page](https://github.com/abinaya-1617/AI-Docker-Compose-Generator/releases) to get the latest version.
+2. **Extract**: Unzip the downloaded file.
+3. **Run**: Execute the application using your preferred method (command line, IDE, etc.).
+
+## Usage
+
+Once installed, you can use the AI Docker Compose Generator as follows:
+
+1. Open the application.
+2. Paste your GitHub repository link into the designated field.
+3. Click on the "Generate" button.
+4. The application will create the `Dockerfile` and `docker-compose.yaml` files for you.
+5. You can then use these files to deploy your application.
+
+## Examples
+
+### Example 1: Node.js Application
+
+1. Paste the link to your Node.js GitHub repository.
+2. Click "Generate".
+3. The application produces a `Dockerfile` that looks like this:
+
+   ```dockerfile
+   FROM node:14
+
+   WORKDIR /usr/src/app
+
+   COPY package*.json ./
+
+   RUN npm install
+
+   COPY . .
+
+   EXPOSE 8080
+   CMD ["node", "server.js"]
+   ```
+
+4. The `docker-compose.yaml` file generated will look like:
+
+   ```yaml
+   version: '3'
+   services:
+     app:
+       build: .
+       ports:
+         - "8080:8080"
+   ```
+
+### Example 2: Python Flask Application
+
+1. Paste the link to your Flask GitHub repository.
+2. Click "Generate".
+3. The generated `Dockerfile`:
+
+   ```dockerfile
+   FROM python:3.8
+
+   WORKDIR /app
+
+   COPY requirements.txt ./
+   RUN pip install --no-cache-dir -r requirements.txt
+
+   COPY . .
+
+   EXPOSE 5000
+   CMD ["flask", "run", "--host=0.0.0.0"]
+   ```
+
+4. The `docker-compose.yaml` file will be:
+
+   ```yaml
+   version: '3'
+   services:
+     web:
+       build: .
+       ports:
+         - "5000:5000"
+   ```
 
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+We welcome contributions! To contribute to the AI Docker Compose Generator:
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature/YourFeature`).
+3. Make your changes.
+4. Commit your changes (`git commit -m 'Add some feature'`).
+5. Push to the branch (`git push origin feature/YourFeature`).
+6. Open a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Links
+
+For more information, visit the [Releases section](https://github.com/abinaya-1617/AI-Docker-Compose-Generator/releases) to download the latest version and check for updates. You can also explore the source code and contribute to the project.
+
+Happy coding!
